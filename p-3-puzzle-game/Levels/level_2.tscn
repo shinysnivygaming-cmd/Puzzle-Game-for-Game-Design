@@ -1,17 +1,19 @@
-[gd_scene format=4 uid="uid://1irtqb1f0nh"]
+[gd_scene format=4 uid="uid://bijrko0g3xgu2"]
 
-[ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_n7ypv"]
-[ext_resource type="Script" uid="uid://tguotsuupeg" path="res://area_2d.gd" id="2_0s5r2"]
-[ext_resource type="Texture2D" uid="uid://4e6orb7xije1" path="res://Assets/Door.png" id="2_7dov7"]
-[ext_resource type="Texture2D" uid="uid://cf56q61thp6xh" path="res://Assets/Button.png" id="2_7j8ne"]
-[ext_resource type="Script" uid="uid://c2rmjwb6gtqyi" path="res://door.gd" id="2_15wb7"]
-[ext_resource type="Texture2D" uid="uid://ymluahey352x" path="res://Assets/OpenDoor.png" id="2_ehv2h"]
-[ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="3_7j8ne"]
-[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://crate.gd" id="4_7dov7"]
-[ext_resource type="Texture2D" uid="uid://k0ms50e0ps0e" path="res://Assets/Crate.png" id="5_ehv2h"]
+[ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_qeqk5"]
+[ext_resource type="Script" uid="uid://2bucj11qf1ep" path="res://ladder.gd" id="2_1soli"]
+[ext_resource type="Texture2D" uid="uid://c84dflbhb4gpf" path="res://Assets/Ladder.png" id="3_4pbjs"]
+[ext_resource type="Script" uid="uid://c2rmjwb6gtqyi" path="res://door.gd" id="4_lmqi1"]
+[ext_resource type="Texture2D" uid="uid://cf56q61thp6xh" path="res://Assets/Button.png" id="5_5yfph"]
+[ext_resource type="Texture2D" uid="uid://ymluahey352x" path="res://Assets/OpenDoor.png" id="6_w6yvm"]
+[ext_resource type="Texture2D" uid="uid://4e6orb7xije1" path="res://Assets/Door.png" id="7_jcvcn"]
+[ext_resource type="Script" uid="uid://tguotsuupeg" path="res://area_2d.gd" id="8_0ttnk"]
+[ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="9_v3vm6"]
+[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://crate.gd" id="10_16yl7"]
+[ext_resource type="Texture2D" uid="uid://k0ms50e0ps0e" path="res://Assets/Crate.png" id="11_3slvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
-texture = ExtResource("1_n7ypv")
+texture = ExtResource("1_qeqk5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -120,7 +122,7 @@ terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_aqk2v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
-texture = ExtResource("1_n7ypv")
+texture = ExtResource("1_qeqk5")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -251,6 +253,9 @@ physics_layer_0/collision_layer = 31
 physics_layer_0/collision_mask = 31
 sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcdb"]
+size = Vector2(16, 16)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7p1di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo5g7"]
@@ -279,12 +284,25 @@ tile_set = SubResource("TileSet_qo5g7")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2113615138]
 zoom = Vector2(4, 4)
 
+[node name="Ladder" type="Area2D" parent="." unique_id=1584255027]
+position = Vector2(104, -8)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("2_1soli")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" unique_id=789935164]
+shape = SubResource("RectangleShape2D_xbcdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ladder" unique_id=114220970]
+texture = ExtResource("3_4pbjs")
+
 [node name="Door" type="AnimatableBody2D" parent="." unique_id=978152449]
 position = Vector2(72, -8)
 collision_layer = 40
 collision_mask = 31
 physics_material_override = SubResource("PhysicsMaterial_7p1di")
-script = ExtResource("2_15wb7")
+script = ExtResource("4_lmqi1")
 metadata/_edit_group_ = true
 
 [node name="Button" type="Area2D" parent="Door" unique_id=1927305917]
@@ -298,13 +316,13 @@ shape = SubResource("RectangleShape2D_qo5g7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door/Button" unique_id=1375560816]
 scale = Vector2(0.84375, 0.87499994)
-texture = ExtResource("2_7j8ne")
+texture = ExtResource("5_5yfph")
 
 [node name="OpenDoor" type="Sprite2D" parent="Door" unique_id=1314711996]
-texture = ExtResource("2_ehv2h")
+texture = ExtResource("6_w6yvm")
 
 [node name="ClosedDoor" type="Sprite2D" parent="Door" unique_id=1390369369]
-texture = ExtResource("2_7dov7")
+texture = ExtResource("7_jcvcn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=872961812]
 shape = SubResource("RectangleShape2D_rgbsa")
@@ -313,7 +331,7 @@ shape = SubResource("RectangleShape2D_rgbsa")
 position = Vector2(-89, -25)
 collision_layer = 2
 collision_mask = 31
-script = ExtResource("2_0s5r2")
+script = ExtResource("8_0ttnk")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1655753557]
@@ -322,7 +340,7 @@ shape = SubResource("RectangleShape2D_7p1di")
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1261712403]
 position = Vector2(-4.7683716e-07, -2.0000005)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_7j8ne")
+texture = ExtResource("9_v3vm6")
 
 [node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1173380391]
 collision_mask = 31
@@ -332,18 +350,19 @@ collide_with_areas = true
 position = Vector2(-57, -23)
 collision_layer = 8
 collision_mask = 31
-script = ExtResource("4_7dov7")
+script = ExtResource("10_16yl7")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate" unique_id=1673033075]
 shape = SubResource("RectangleShape2D_01uiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Crate" unique_id=173120846]
-texture = ExtResource("5_ehv2h")
+texture = ExtResource("11_3slvs")
 
 [node name="RayCast2D" type="RayCast2D" parent="Crate" unique_id=1956315576]
 collision_mask = 31
 collide_with_areas = true
 
+[connection signal="area_entered" from="Ladder" to="Ladder" method="_on_area_entered"]
 [connection signal="area_entered" from="Door/Button" to="Door" method="_on_button_area_entered"]
 [connection signal="area_exited" from="Door/Button" to="Door" method="_on_button_area_exited"]

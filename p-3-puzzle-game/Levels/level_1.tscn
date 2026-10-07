@@ -1,15 +1,15 @@
-[gd_scene format=4 uid="uid://bsbcdwmsuc3pw"]
+[gd_scene format=4 uid="uid://b4gatk0roh15c"]
 
-[ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_rka8t"]
-[ext_resource type="Script" uid="uid://tguotsuupeg" path="res://area_2d.gd" id="2_5hph3"]
-[ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="3_j7kpp"]
-[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://crate.gd" id="4_bjebc"]
-[ext_resource type="Texture2D" uid="uid://k0ms50e0ps0e" path="res://Assets/Crate.png" id="5_5rr72"]
-[ext_resource type="Script" uid="uid://2bucj11qf1ep" path="res://ladder.gd" id="6_j7kpp"]
-[ext_resource type="Texture2D" uid="uid://c84dflbhb4gpf" path="res://Assets/Ladder.png" id="7_bjebc"]
+[ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_0urlm"]
+[ext_resource type="Script" uid="uid://2bucj11qf1ep" path="res://ladder.gd" id="2_77x7w"]
+[ext_resource type="Texture2D" uid="uid://c84dflbhb4gpf" path="res://Assets/Ladder.png" id="3_xoyoh"]
+[ext_resource type="Script" uid="uid://tguotsuupeg" path="res://area_2d.gd" id="4_f4pg2"]
+[ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="5_62b6n"]
+[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://crate.gd" id="6_rs4xw"]
+[ext_resource type="Texture2D" uid="uid://k0ms50e0ps0e" path="res://Assets/Crate.png" id="7_lk57d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
-texture = ExtResource("1_rka8t")
+texture = ExtResource("1_0urlm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -118,7 +118,7 @@ terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_aqk2v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
-texture = ExtResource("1_rka8t")
+texture = ExtResource("1_0urlm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -276,20 +276,20 @@ zoom = Vector2(4, 4)
 position = Vector2(104, -8)
 collision_layer = 32
 collision_mask = 2
-script = ExtResource("6_j7kpp")
+script = ExtResource("2_77x7w")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" unique_id=293460319]
 shape = SubResource("RectangleShape2D_qo5g7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ladder" unique_id=461220191]
-texture = ExtResource("7_bjebc")
+texture = ExtResource("3_xoyoh")
 
 [node name="Player" type="Area2D" parent="." unique_id=2093940551]
 position = Vector2(-86, -25)
 collision_layer = 2
 collision_mask = 31
-script = ExtResource("2_5hph3")
+script = ExtResource("4_f4pg2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1655753557]
@@ -298,7 +298,7 @@ shape = SubResource("RectangleShape2D_7p1di")
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1261712403]
 position = Vector2(-1.9073486e-06, -1.9999999)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_j7kpp")
+texture = ExtResource("5_62b6n")
 
 [node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1173380391]
 collision_mask = 31
@@ -308,14 +308,14 @@ collide_with_areas = true
 position = Vector2(-9, -8)
 collision_layer = 8
 collision_mask = 63
-script = ExtResource("4_bjebc")
+script = ExtResource("6_rs4xw")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate" unique_id=1673033075]
 shape = SubResource("RectangleShape2D_01uiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Crate" unique_id=173120846]
-texture = ExtResource("5_5rr72")
+texture = ExtResource("7_lk57d")
 
 [node name="RayCast2D" type="RayCast2D" parent="Crate" unique_id=1956315576]
 collision_mask = 31

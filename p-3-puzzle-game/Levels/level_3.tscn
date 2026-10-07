@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bfcdg8g6mkio1"]
+[gd_scene format=4 uid="uid://dc5toeunjirj8"]
 
 [ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_ck3gp"]
 [ext_resource type="Script" uid="uid://2bucj11qf1ep" path="res://ladder.gd" id="2_trpa2"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://ymluahey352x" path="res://Assets/OpenDoor.png" id="7_88iqf"]
 [ext_resource type="Script" uid="uid://tguotsuupeg" path="res://area_2d.gd" id="8_5wr1k"]
 [ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="9_wtqdv"]
+[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://crate.gd" id="10_4t7ew"]
+[ext_resource type="Texture2D" uid="uid://k0ms50e0ps0e" path="res://Assets/Crate.png" id="11_oojpf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
 texture = ExtResource("1_ck3gp")
@@ -251,6 +253,9 @@ physics_layer_0/collision_layer = 31
 physics_layer_0/collision_mask = 31
 sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcdb"]
+size = Vector2(16, 16)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7p1di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo5g7"]
@@ -262,30 +267,47 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1di"]
 size = Vector2(12, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01uiq"]
+size = Vector2(16, 16)
+
 [node name="Level 3" type="Node2D" unique_id=1005013473]
 
 [node name="Setting" type="TileMapLayer" parent="." unique_id=1648083686]
-tile_map_data = PackedByteArray("AAAFAP3/AQABAAEAAAAFAP7/AQABAAIAAAAFAP//AQAGAAAAAAAGAP3/AQAHAAAAAAAGAP7/AQAHAAEAAAAGAP//AQAHAAAAAAAHAP3/AQAEAAEAAAAHAP7/AQAEAAIAAAAHAP//AQAEAAIAAAAFAAAAAQABAAIAAAAFAAEAAQABAAMAAAAGAAAAAQAHAAEAAAAGAAEAAQADAAMAAAAHAAAAAQAEAAIAAAAHAAEAAQAEAAMAAAD6//7/AQABAAIAAAD6////AQABAAIAAAD6/wAAAQABAAMAAAD7//7/AQAHAAAAAAD7////AQAHAAEAAAD7/wAAAQADAAMAAAD8//7/AQAEAAIAAAD8////AQAIAAEAAAD8/wAAAQAEAAMAAAD6//3/AQABAAEAAAD8//3/AQAEAAEAAAACAP//AQAAAAYAAAADAP//AQABAAYAAAAEAP//AQACAAYAAAD9////AQAGAAAAAAD+////AQAHAAAAAAD/////AQAIAAAAAAAAAP//AQAJAAAAAAAAAP7/AQABAAEAAAABAP7/AQAEAAEAAAABAP//AQAIAAAAAAABAAAAAQAIAAEAAAABAAEAAQADAAMAAAD7//3/AQACAAIAAAADAAEAAQAIAAcAAAD+/wEAAQAIAAcAAAD//wEAAQAIAAcAAAADAP3/AQAIAAcAAAD+//3/AQAIAAcAAAD6/wEAAQAIAAcAAAD7/wEAAQAIAAcAAAD8/wEAAQAIAAcAAAD9/wEAAQAIAAcAAAD9/wAAAQAIAAcAAAD+/wAAAQAIAAcAAAD//wAAAQAIAAcAAAAAAAAAAQAIAAcAAAAAAAEAAQAIAAcAAAACAAEAAQAIAAcAAAAEAAEAAQAIAAcAAAACAAAAAQAIAAcAAAADAAAAAQAIAAcAAAAEAAAAAQAIAAcAAAAEAP3/AQAIAAcAAAAEAP7/AQAIAAcAAAACAP3/AQAIAAcAAAACAP7/AQAIAAcAAAADAP7/AQAIAAcAAAD9//3/AQAIAAcAAAD///3/AQAIAAcAAAAAAP3/AQAIAAcAAAABAP3/AQAIAAcAAAD9//7/AQAIAAcAAAD+//7/AQAIAAcAAAD///7/AQAIAAcAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAQAHAAEAAAAAAAEAAQAHAAEAAAD//wEAAQAHAAEAAAD+/wEAAQAIAAcAAAABAAEAAQAHAAEAAAABAAAAAQAHAAEAAAACAAAAAQAHAAEAAAAAAAAAAQAHAAEAAAD//wAAAQAHAAEAAAAAAP//AQAHAAEAAAAAAP7/AQAHAAEAAAAAAP3/AQAHAAEAAAD+/wAAAQAHAAEAAAD+////AQAHAAEAAAD+//7/AQAHAAEAAAD+//3/AQAIAAcAAAD///3/AQAHAAEAAAABAP3/AQAHAAEAAAACAP3/AQAIAAcAAAACAP7/AQAHAAEAAAACAP//AQAHAAEAAAACAAEAAQAIAAcAAAABAP//AQAHAAEAAAABAP7/AQAHAAEAAAD///7/AQAHAAEAAAD/////AQAHAAEAAAD///z/AQAIAAcAAAD9//7/AQAIAAcAAAD8////AQAIAAcAAAABAPz/AQAIAAcAAAADAP7/AQAIAAcAAAAEAP//AQAIAAcAAAD9/wAAAQAIAAcAAAD//wIAAQAIAAcAAAAAAAMAAQAIAAcAAAABAAIAAQAIAAcAAAADAAAAAQAIAAcAAAAAAPz/AQAHAAEAAAADAP//AQAHAAEAAAD9////AQAHAAEAAAABAAMAAQAIAAcAAAACAAMAAQAIAAcAAAADAAMAAQAIAAcAAAAEAAMAAQAIAAcAAAAFAAMAAQAIAAcAAAAFAAQAAQAIAAcAAAAGAAQAAQAIAAcAAAAHAAQAAQAIAAcAAAAIAAQAAQAIAAcAAAAFAPv/AQAIAAcAAAAFAPz/AQAIAAcAAAAFAP3/AQAIAAcAAAAFAP7/AQAIAAcAAAAFAP//AQAIAAcAAAAFAAAAAQAIAAcAAAAFAAEAAQAIAAcAAAAFAAIAAQAIAAcAAAAGAPv/AQAIAAcAAAAGAPz/AQAIAAcAAAAGAP3/AQAIAAcAAAAGAP7/AQAIAAcAAAAGAP//AQAIAAcAAAAGAAAAAQAIAAcAAAAGAAEAAQAIAAcAAAAGAAIAAQAIAAcAAAAGAAMAAQAIAAcAAAAHAPv/AQAIAAcAAAAHAPz/AQAIAAcAAAAHAP3/AQAIAAcAAAAHAP7/AQAIAAcAAAAHAP//AQAIAAcAAAAHAAAAAQAIAAcAAAAHAAEAAQAIAAcAAAAHAAIAAQAIAAcAAAAHAAMAAQAIAAcAAAAIAPv/AQAIAAcAAAAIAPz/AQAIAAcAAAAIAP3/AQAIAAcAAAAIAP7/AQAIAAcAAAAIAP//AQAIAAcAAAAIAAAAAQAIAAcAAAAIAAEAAQAIAAcAAAAIAAIAAQAIAAcAAAAIAAMAAQAIAAcAAAD3//v/AQAIAAcAAAD3//z/AQAIAAcAAAD3//3/AQAIAAcAAAD3//7/AQAIAAcAAAD3////AQAIAAcAAAD3/wAAAQAIAAcAAAD3/wEAAQAIAAcAAAD3/wIAAQAIAAcAAAD3/wMAAQAIAAcAAAD4//v/AQAIAAcAAAD4//z/AQAIAAcAAAD4//3/AQAIAAcAAAD4//7/AQAIAAcAAAD4////AQAIAAcAAAD4/wAAAQAIAAcAAAD4/wEAAQAIAAcAAAD4/wIAAQAIAAcAAAD4/wMAAQAIAAcAAAD5//v/AQAIAAcAAAD5//z/AQAIAAcAAAD5//3/AQAIAAcAAAD5//7/AQAIAAcAAAD5////AQAIAAcAAAD5/wAAAQAIAAcAAAD5/wEAAQAIAAcAAAD5/wIAAQAIAAcAAAD5/wMAAQAIAAcAAAD6//v/AQAIAAcAAAD6//z/AQAIAAcAAAD6//3/AQAIAAcAAAD6//7/AQAIAAcAAAD6////AQAIAAcAAAD6/wAAAQAIAAcAAAD6/wEAAQAIAAcAAAD6/wIAAQAIAAcAAAD6/wMAAQAIAAcAAAD7//v/AQAIAAcAAAD7//z/AQAIAAcAAAD7//3/AQAIAAcAAAD7//7/AQAIAAcAAAD7////AQAIAAcAAAD7/wAAAQAIAAcAAAD7/wEAAQAIAAcAAAD7/wIAAQAIAAcAAAD7/wMAAQAIAAcAAAD8/wEAAQAIAAcAAAD8/wIAAQAIAAcAAAD8/wMAAQAIAAcAAAD9/wEAAQAIAAcAAAD9/wIAAQAIAAcAAAD9/wMAAQAIAAcAAAADAAEAAQAIAAcAAAADAAIAAQAIAAcAAAAEAAEAAQAIAAcAAAAEAAIAAQAIAAcAAAADAPv/AQAIAAcAAAADAPz/AQAIAAcAAAADAP3/AQAIAAcAAAAEAPv/AQAIAAcAAAAEAPz/AQAIAAcAAAAEAP3/AQAIAAcAAAD8//v/AQAIAAcAAAD8//z/AQAIAAcAAAD8//3/AQAIAAcAAAD9//v/AQAIAAcAAAD9//z/AQAIAAcAAAD9//3/AQAIAAcAAAD8/wAAAQAIAAcAAAD+/wIAAQAIAAcAAAD+/wMAAQAIAAcAAAD//wMAAQAIAAcAAAACAAIAAQAIAAcAAAAEAAAAAQAIAAcAAAAEAP7/AQAIAAcAAAACAPz/AQAIAAcAAAACAPv/AQAIAAcAAAABAPv/AQAIAAcAAAAAAPv/AQAIAAcAAAD///v/AQAIAAcAAAD+//v/AQAIAAcAAAD+//z/AQAIAAcAAAAEAAQAAQAIAAcAAAADAAQAAQAIAAcAAAACAAQAAQAIAAcAAAAAAAQAAQAIAAcAAAD//wQAAQAIAAcAAAD+/wQAAQAIAAcAAAD9/wQAAQAIAAcAAAD8/wQAAQAIAAcAAAD7/wQAAQAIAAcAAAD6/wQAAQAIAAcAAAD5/wQAAQAIAAcAAAD4/wQAAQAIAAcAAAD3/wQAAQAIAAcAAAABAAQAAQAIAAcAAAD8//7/AQAIAAcAAAA=")
 tile_set = SubResource("TileSet_7p1di")
 
 [node name="Terrain" type="TileMapLayer" parent="." unique_id=505176634]
 light_mask = 31
-tile_map_data = PackedByteArray("AAD6//z/AAABAAAAAAD7//z/AAACAAAAAAD8//z/AAADAAAAAAAFAPz/AAABAAAAAAAGAPz/AAACAAAAAAAHAPz/AAADAAAAAAAAAP3/AAADAAAAAAABAP3/AAAEAAAAAAD5//z/AAAAAAAAAAD5//3/AAAAAAAAAAD5//7/AAAAAAEAAAD5////AAAAAAIAAAD5/wAAAAAAAAMAAAD5/wEAAAAAAAQAAAAIAPz/AAAFAAAAAAAIAP3/AAAFAAEAAAAIAP7/AAAFAAAAAAAIAP//AAAFAAEAAAAIAAAAAAAFAAIAAAAIAAEAAAAFAAMAAAAIAAIAAAAFAAQAAAAEAAEAAAAAAAMAAAAEAAIAAAAAAAQAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAQAAAD9//z/AAAFAAIAAAD9//3/AAAFAAMAAAACAP3/AAAFAAIAAAACAP7/AAACAAAAAAD+//7/AAABAAAAAAD///7/AAAEAAAAAAD9//7/AAACAAAAAAD///3/AAAAAAEAAAADAP7/AAADAAAAAAAEAP7/AAAEAAAAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAIAAAAFAAIAAAACAAQAAAAGAAIAAAADAAQAAAAHAAIAAAAEAAQAAAABAAIAAAAEAAQAAAACAAIAAAAFAAQAAAACAAEAAAAFAAIAAAACAAAAAAAFAAEAAAAEAAAAAAAFAAUAAAADAAAAAAAEAAQAAAD9/wAAAAAAAAUAAAD+/wAAAAABAAUAAAD//wAAAAACAAUAAAAAAAAAAAADAAUAAAD6/wEAAAACAAQAAAD7/wEAAAADAAQAAAD8/wEAAAAEAAQAAAD9/wEAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AAAEAP//AAAFAAIAAAABAAIAAAAEAAUAAAACAAEAAAAAAAUAAAADAAAAAAAEAAUAAAD//wIAAAAFAAUAAAD9/wAAAAAFAAUAAAD+/wEAAAADAAUAAAD9//7/AAAEAAAAAAACAP3/AAAEAAAAAAABAPz/AAACAAAAAAADAP7/AAACAAAAAAD///z/AAACAAAAAAD+//3/AAADAAAAAAAAAPv/AAACAAAAAAD8////AAAAAAIAAAD9//3/AAAAAAEAAAD+//z/AAAAAAIAAAADAP3/AAAFAAIAAAACAPz/AAAFAAAAAAAEAP7/AAAFAAAAAAD8//7/AAAAAAEAAAAAAAMAAAAEAAQAAAABAAMAAAAFAAQAAAD//wMAAAAAAAQAAAABAPv/AAAFAAMAAAD///v/AAAAAAIAAAD9/wEAAAAAAAQAAAD+/wIAAAAAAAQAAAACAAIAAAAFAAQAAAADAAEAAAAFAAQAAAAEAAAAAAAFAAQAAAD8/wAAAAAAAAQAAAA=")
 tile_set = SubResource("TileSet_qo5g7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2113615138]
 zoom = Vector2(4, 4)
 
-[node name="Door" type="AnimatableBody2D" parent="." unique_id=978152449]
-position = Vector2(104, -8)
+[node name="Ladder" type="Area2D" parent="." unique_id=1584255027]
+position = Vector2(8, -56)
 collision_layer = 32
 collision_mask = 2
-input_pickable = true
-physics_material_override = SubResource("PhysicsMaterial_7p1di")
 script = ExtResource("2_trpa2")
 metadata/_edit_group_ = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" unique_id=789935164]
+shape = SubResource("RectangleShape2D_xbcdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ladder" unique_id=114220970]
+texture = ExtResource("4_oojpf")
+
+[node name="Door" type="AnimatableBody2D" parent="." unique_id=978152449]
+visible = false
+position = Vector2(72, -8)
+collision_layer = 40
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_7p1di")
+script = ExtResource("6_2urlj")
+metadata/_edit_group_ = true
+
 [node name="Button" type="Area2D" parent="Door" unique_id=1927305917]
+position = Vector2(-48, 32)
 collision_layer = 32
 collision_mask = 31
 metadata/_edit_group_ = true
@@ -298,7 +320,7 @@ scale = Vector2(0.84375, 0.87499994)
 texture = ExtResource("3_4t7ew")
 
 [node name="OpenDoor" type="Sprite2D" parent="Door" unique_id=1314711996]
-texture = ExtResource("4_oojpf")
+texture = ExtResource("7_88iqf")
 
 [node name="ClosedDoor" type="Sprite2D" parent="Door" unique_id=1390369369]
 texture = ExtResource("5_7cdb2")
@@ -307,43 +329,126 @@ texture = ExtResource("5_7cdb2")
 shape = SubResource("RectangleShape2D_rgbsa")
 
 [node name="Player" type="Area2D" parent="." unique_id=2093940551]
-position = Vector2(72, -8)
-collision_layer = 40
+position = Vector2(-8, 24)
+collision_layer = 2
 collision_mask = 31
-input_pickable = false
-script = ExtResource("6_2urlj")
+script = ExtResource("8_5wr1k")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1655753557]
-position = Vector2(-48, 32)
 shape = SubResource("RectangleShape2D_7p1di")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1261712403]
-texture = ExtResource("7_88iqf")
+position = Vector2(-4.7683716e-07, -2.0000005)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_wtqdv")
 
 [node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1173380391]
 collision_mask = 31
 collide_with_areas = true
 
 [node name="Crate" type="Area2D" parent="." unique_id=879882459 groups=["Crates"]]
-position = Vector2(-89, -25)
-collision_layer = 2
+position = Vector2(8, -24)
+collision_layer = 8
 collision_mask = 31
-script = ExtResource("8_5wr1k")
+script = ExtResource("10_4t7ew")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate" unique_id=1673033075]
-shape = SubResource("RectangleShape2D_7p1di")
+shape = SubResource("RectangleShape2D_01uiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Crate" unique_id=173120846]
-position = Vector2(-4.7683716e-07, -2.0000005)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("9_wtqdv")
+texture = ExtResource("11_oojpf")
 
 [node name="RayCast2D" type="RayCast2D" parent="Crate" unique_id=1956315576]
 collision_mask = 31
 collide_with_areas = true
 
+[node name="Crate2" type="Area2D" parent="." unique_id=1676688967 groups=["Crates"]]
+position = Vector2(-8, -8)
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("10_4t7ew")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate2" unique_id=260617845]
+shape = SubResource("RectangleShape2D_01uiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Crate2" unique_id=633532489]
+texture = ExtResource("11_oojpf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Crate2" unique_id=704432122]
+collision_mask = 31
+collide_with_areas = true
+
+[node name="Crate3" type="Area2D" parent="." unique_id=515341503 groups=["Crates"]]
+position = Vector2(-8, -56)
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("10_4t7ew")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate3" unique_id=625658586]
+shape = SubResource("RectangleShape2D_01uiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Crate3" unique_id=1486875330]
+texture = ExtResource("11_oojpf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Crate3" unique_id=1663666206]
+collision_mask = 31
+collide_with_areas = true
+
+[node name="Crate4" type="Area2D" parent="." unique_id=1120591614 groups=["Crates"]]
+position = Vector2(-24, -40)
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("10_4t7ew")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate4" unique_id=1226569680]
+shape = SubResource("RectangleShape2D_01uiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Crate4" unique_id=1923858998]
+texture = ExtResource("11_oojpf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Crate4" unique_id=1951798542]
+collision_mask = 31
+collide_with_areas = true
+
+[node name="Crate5" type="Area2D" parent="." unique_id=1382974641 groups=["Crates"]]
+position = Vector2(8, -40)
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("10_4t7ew")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate5" unique_id=2108575081]
+shape = SubResource("RectangleShape2D_01uiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Crate5" unique_id=1422692440]
+texture = ExtResource("11_oojpf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Crate5" unique_id=1199900712]
+collision_mask = 31
+collide_with_areas = true
+
+[node name="Crate6" type="Area2D" parent="." unique_id=1256249821 groups=["Crates"]]
+position = Vector2(-24, -24)
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("10_4t7ew")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate6" unique_id=1165933614]
+shape = SubResource("RectangleShape2D_01uiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Crate6" unique_id=1135864110]
+texture = ExtResource("11_oojpf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Crate6" unique_id=649253834]
+collision_mask = 31
+collide_with_areas = true
+
+[connection signal="area_entered" from="Ladder" to="Ladder" method="_on_area_entered"]
 [connection signal="area_entered" from="Door/Button" to="Door" method="_on_button_area_entered"]
 [connection signal="area_exited" from="Door/Button" to="Door" method="_on_button_area_exited"]
