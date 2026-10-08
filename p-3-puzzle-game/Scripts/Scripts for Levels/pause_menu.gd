@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var level_label: Label = $MarginContainer/VBoxContainer/Level
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
@@ -8,7 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	level_label.text = "Level " + str(SceneSwitcher.curLvl)
+	
 
 
 func _on_resume_pressed() -> void:
