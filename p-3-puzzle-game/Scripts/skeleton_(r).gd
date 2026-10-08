@@ -6,7 +6,7 @@ var inputs = {"Right": Vector2.RIGHT,
 			"Up": Vector2.UP,
 			"Down": Vector2.DOWN}
 @onready var ray = $RayCast2D
-var curDir = Vector2.LEFT
+var curDir = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,16 +30,22 @@ func move():
 	if !ray.is_colliding():
 		position += curDir * tile_size
 	else:
-		if curDir == Vector2.LEFT:
-			curDir = Vector2.RIGHT
-			position += curDir * tile_size
-		elif curDir == Vector2.RIGHT:
-			curDir= Vector2.LEFT
-			position += curDir * tile_size
-			
+		switch_dir()
 
-
-
+func switch_dir() -> void:
+	if curDir == Vector2.LEFT:
+		curDir = Vector2.RIGHT
+		await get_tree().create_timer(.1).timeout
+		ray.force_raycast_update()
+		#if !ray.is_colliding():
+			#position += curDir * tile_size
+	elif curDir == Vector2.RIGHT:
+		curDir= Vector2.LEFT
+		await get_tree().create_timer(.1).timeout
+		ray.force_raycast_update()
+		#if !ray.is_colliding():
+			#position += curDir * tile_size
 
 func _on_area_entered(area: Area2D) -> void:
-	SceneSwitcher.skeleton_scene()
+	if area == $"../Player":
+		SceneSwitcher.skeleton_scene()

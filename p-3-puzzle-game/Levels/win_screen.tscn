@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://1opwtneolno2"]
+
+[ext_resource type="Texture2D" uid="uid://5dyssrjn8ufv" path="res://Assets/Final Screen.png" id="1_xqqm7"]
+
+[node name="Win Screen" type="Control" unique_id=1543662566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 169.0
+offset_top = 126.0
+offset_right = 169.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=71145620]
+layout_mode = 0
+offset_left = -311.0
+offset_top = -7.0
+offset_right = 1612.0
+offset_bottom = 1062.0
+texture = ExtResource("1_xqqm7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1847326746]
+position = Vector2(598, 497)
+zoom = Vector2(0.8, 0.8)

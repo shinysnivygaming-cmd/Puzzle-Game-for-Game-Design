@@ -1,16 +1,19 @@
 [gd_scene format=4 uid="uid://2dhprdih13mm"]
 
 [ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_m0m22"]
-[ext_resource type="Script" uid="uid://2bucj11qf1ep" path="res://ladder.gd" id="2_utic7"]
+[ext_resource type="Script" uid="uid://bwk5f5dcgu58k" path="res://Scripts/Scripts for Levels/level_4.gd" id="1_utic7"]
+[ext_resource type="Script" uid="uid://2bucj11qf1ep" path="res://Scripts/ladder.gd" id="2_utic7"]
 [ext_resource type="Texture2D" uid="uid://c84dflbhb4gpf" path="res://Assets/Ladder.png" id="3_x4mg1"]
-[ext_resource type="Script" uid="uid://c2rmjwb6gtqyi" path="res://door.gd" id="4_6iucq"]
+[ext_resource type="Script" uid="uid://c2rmjwb6gtqyi" path="res://Scripts/door.gd" id="4_6iucq"]
 [ext_resource type="Texture2D" uid="uid://cf56q61thp6xh" path="res://Assets/Button.png" id="5_fcg6d"]
 [ext_resource type="Texture2D" uid="uid://ymluahey352x" path="res://Assets/OpenDoor.png" id="6_3227t"]
 [ext_resource type="Texture2D" uid="uid://4e6orb7xije1" path="res://Assets/Door.png" id="7_lk1ng"]
-[ext_resource type="Script" uid="uid://tguotsuupeg" path="res://area_2d.gd" id="8_jovq6"]
+[ext_resource type="Script" uid="uid://tguotsuupeg" path="res://Scripts/area_2d.gd" id="8_jovq6"]
 [ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="9_g7gqs"]
-[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://crate.gd" id="10_lvag0"]
+[ext_resource type="Script" uid="uid://dcfqxvpx7adfq" path="res://Scripts/crate.gd" id="10_lvag0"]
 [ext_resource type="Texture2D" uid="uid://k0ms50e0ps0e" path="res://Assets/Crate.png" id="11_qxw0v"]
+[ext_resource type="Script" uid="uid://c3fvlnlpcgm0m" path="res://Scripts/coin_.gd" id="13_6iucq"]
+[ext_resource type="Texture2D" uid="uid://wy4agr31eo8b" path="res://Assets/Coin.png" id="14_fcg6d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
 texture = ExtResource("1_m0m22")
@@ -270,7 +273,11 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01uiq"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1njct"]
+size = Vector2(16, 16)
+
 [node name="Level 4" type="Node2D" unique_id=1005013473]
+script = ExtResource("1_utic7")
 
 [node name="Setting" type="TileMapLayer" parent="." unique_id=1648083686]
 tile_map_data = PackedByteArray("AAD8//v/AQAHAAEAAAD8//z/AQAHAAEAAAD9//v/AQAHAAEAAAD9//z/AQAGAAAAAAADAPv/AQAHAAEAAAAEAPz/AQAHAAEAAAADAPz/AQAHAAEAAAD8/wIAAQAHAAEAAAD8/wMAAQAHAAIAAAD9/wIAAQAIAAEAAAD9/wMAAQAIAAIAAAADAAIAAQAJAAAAAAAEAAIAAQAJAAEAAAADAAMAAQAGAAIAAAAEAAMAAQAIAAIAAAD8////AQABAAcAAAD9////AQAHAAEAAAD+////AQABAAcAAAD/////AQABAAcAAAAAAP//AQABAAcAAAABAP//AQABAAcAAAACAP//AQABAAcAAAADAP//AQABAAcAAAAEAP//AQAHAAEAAAAAAPv/AQAJAAAAAAAAAPz/AQAHAAEAAAAEAP7/AQAHAAEAAAD8/wEAAQAHAAEAAAD8/wAAAQAHAAEAAAD8//3/AQADAAcAAAD8//7/AQADAAcAAAD+//v/AQAAAAcAAAD///v/AQAAAAcAAAABAPv/AQAHAAEAAAACAPv/AQAJAAIAAAAAAP3/AQAHAAEAAAAAAP7/AQAHAAEAAAAAAAAAAQAIAAEAAAABAAMAAQAIAAEAAAAAAAMAAQAIAAEAAAD+/wMAAQAGAAAAAAD//wMAAQAGAAAAAAACAAMAAQAGAAAAAAAAAAIAAQAGAAIAAAAAAAEAAQAGAAIAAAAEAAEAAQAJAAIAAAAEAAAAAQAJAAIAAAAEAP3/AQAJAAIAAAAFAP//AQAIAAEAAAD7////AQAIAAEAAAD7//r/AQAIAAcAAAD7//v/AQAIAAcAAAD7//z/AQAIAAcAAAD7//3/AQAIAAcAAAD8//r/AQAIAAcAAAD9//r/AQAIAAcAAAD+//r/AQAIAAcAAAD///r/AQAIAAcAAAAAAPr/AQAIAAcAAAABAPr/AQAIAAcAAAACAPr/AQAIAAcAAAADAPr/AQAIAAcAAAD3//v/AQAIAAcAAAD3//z/AQAIAAcAAAD3//3/AQAIAAcAAAD3//7/AQAIAAcAAAD3////AQAIAAcAAAD3/wAAAQAIAAcAAAD3/wEAAQAIAAcAAAD3/wIAAQAIAAcAAAD3/wMAAQAIAAcAAAD3/wQAAQAIAAcAAAD4//v/AQAIAAcAAAD4//z/AQAIAAcAAAD4//3/AQAIAAcAAAD4//7/AQAIAAcAAAD4////AQAIAAcAAAD4/wAAAQAIAAcAAAD4/wEAAQAIAAcAAAD4/wIAAQAIAAcAAAD4/wMAAQAIAAcAAAD4/wQAAQAIAAcAAAD5//v/AQAIAAcAAAD5//z/AQAIAAcAAAD5//3/AQAIAAcAAAD5//7/AQAIAAcAAAD5////AQAIAAcAAAD5/wAAAQAIAAcAAAD5/wEAAQAIAAcAAAD5/wIAAQAIAAcAAAD5/wMAAQAIAAcAAAD5/wQAAQAIAAcAAAD6//v/AQAIAAcAAAD6//z/AQAIAAcAAAD6//3/AQAIAAcAAAD6//7/AQAIAAcAAAD6////AQAIAAcAAAD6/wAAAQAIAAcAAAD6/wEAAQAIAAcAAAD6/wIAAQAIAAcAAAD6/wMAAQAIAAcAAAD6/wQAAQAIAAcAAAD7/wAAAQAIAAcAAAD7/wEAAQAIAAcAAAD7/wIAAQAIAAcAAAD7/wMAAQAIAAcAAAD7/wQAAQAIAAcAAAD8/wQAAQAIAAcAAAD9/wQAAQAIAAcAAAD+/wQAAQAIAAcAAAD//wQAAQAIAAcAAAAAAAQAAQAIAAcAAAABAAQAAQAIAAcAAAACAAQAAQAIAAcAAAADAAQAAQAIAAcAAAAEAAQAAQAIAAcAAAAFAAQAAQAIAAcAAAAGAAQAAQAIAAcAAAAHAAQAAQAIAAcAAAAIAAQAAQAIAAcAAAAIAPr/AQAIAAcAAAAIAPv/AQAIAAcAAAAIAPz/AQAIAAcAAAAIAP3/AQAIAAcAAAAIAP7/AQAIAAcAAAAIAP//AQAIAAcAAAAIAAAAAQAIAAcAAAAIAAEAAQAIAAcAAAAIAAIAAQAIAAcAAAAIAAMAAQAIAAcAAAAFAPr/AQAIAAcAAAAFAPv/AQAIAAcAAAAFAPz/AQAIAAcAAAAFAP3/AQAIAAcAAAAFAP7/AQAIAAcAAAAGAPr/AQAIAAcAAAAGAPv/AQAIAAcAAAAGAPz/AQAIAAcAAAAGAP3/AQAIAAcAAAAGAP7/AQAIAAcAAAAHAPr/AQAIAAcAAAAHAPv/AQAIAAcAAAAHAPz/AQAIAAcAAAAHAP3/AQAIAAcAAAAHAP7/AQAIAAcAAAAGAP//AQAIAAcAAAAGAAAAAQAIAAcAAAAGAAEAAQAIAAcAAAAGAAIAAQAIAAcAAAAGAAMAAQAIAAcAAAAHAP//AQAIAAcAAAAHAAAAAQAIAAcAAAAHAAEAAQAIAAcAAAAHAAIAAQAIAAcAAAAHAAMAAQAIAAcAAAAFAAAAAQAIAAcAAAAFAAEAAQAIAAcAAAAFAAIAAQAIAAcAAAAFAAMAAQAIAAcAAAADAPj/AQAIAAcAAAADAPn/AQAIAAcAAAAEAPj/AQAIAAcAAAAEAPn/AQAIAAcAAAAFAPj/AQAIAAcAAAAFAPn/AQAIAAcAAAAGAPj/AQAIAAcAAAAGAPn/AQAIAAcAAAAHAPj/AQAIAAcAAAAHAPn/AQAIAAcAAAAEAPb/AQAIAAcAAAAEAPf/AQAIAAcAAAAEAPr/AQAJAAcAAAD3//r/AQAIAAcAAAD4//r/AQAIAAcAAAD5//r/AQAIAAcAAAD6//r/AQAIAAcAAAAEAPv/AQADAAEAAAADAPb/AQAIAAcAAAADAPf/AQAIAAcAAAAFAPb/AQAIAAcAAAAFAPf/AQAIAAcAAAAIAPj/AQAIAAcAAAAIAPn/AQAIAAcAAAA=")
@@ -474,6 +481,19 @@ texture = ExtResource("11_qxw0v")
 collision_mask = 31
 collide_with_areas = true
 
+[node name="Coin (EG)" type="Area2D" parent="." unique_id=2108308556]
+position = Vector2(120, -104)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("13_6iucq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin (EG)" unique_id=1418299537]
+shape = SubResource("RectangleShape2D_1njct")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin (EG)" unique_id=1760393478]
+texture = ExtResource("14_fcg6d")
+
 [connection signal="area_entered" from="Ladder" to="Ladder" method="_on_area_entered"]
 [connection signal="area_entered" from="Door/Button" to="Door" method="_on_button_area_entered"]
 [connection signal="area_exited" from="Door/Button" to="Door" method="_on_button_area_exited"]
@@ -481,3 +501,4 @@ collide_with_areas = true
 [connection signal="area_exited" from="Door2/Button" to="Door2" method="_on_button_area_exited"]
 [connection signal="area_entered" from="Door3/Button" to="Door3" method="_on_button_area_entered"]
 [connection signal="area_exited" from="Door3/Button" to="Door3" method="_on_button_area_exited"]
+[connection signal="area_entered" from="Coin (EG)" to="Coin (EG)" method="_on_area_entered"]
