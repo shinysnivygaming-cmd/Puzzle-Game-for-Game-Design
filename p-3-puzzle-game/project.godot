@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="P3 Puzzle Game"
-run/main_scene="uid://bsbcdwmsuc3pw"
+run/main_scene="uid://b4gatk0roh15c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,10 @@ SceneSwitcher="*uid://pcw1s5uwf7rt"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+"Walkable Terrain"=""
 
 [input]
 
