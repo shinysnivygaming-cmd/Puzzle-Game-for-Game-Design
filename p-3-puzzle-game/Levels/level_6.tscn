@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c15igllq0pxlw"]
 
-[ext_resource type="Script" uid="uid://dh4pm0l8mggc1" path="res://Scripts/Scripts for Levels/level_5.gd" id="1_smkgk"]
+[ext_resource type="Script" uid="uid://c23ttjncn4qte" path="res://Scripts/Scripts for Levels/level_6.gd" id="1_qrith"]
 [ext_resource type="Texture2D" uid="uid://cm80h234c34n7" path="res://0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="2_ksj5j"]
 [ext_resource type="Texture2D" uid="uid://cqphchhnrj44j" path="res://2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="3_7s08o"]
 [ext_resource type="Texture2D" uid="uid://bevki44hd4mrv" path="res://0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="4_b0cvc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ta6gn0hjg8i7" path="res://Little Dreamyland - Free Pack/Tileset/Tileset_Floor_Detail.png" id="9_vgpua"]
 [ext_resource type="Script" uid="uid://6vae34gtlied" path="res://Scripts/winning_coin.gd" id="12_ugxhc"]
 [ext_resource type="Texture2D" uid="uid://wy4agr31eo8b" path="res://Assets/Coin.png" id="13_rolfb"]
+[ext_resource type="Script" uid="uid://c3fvlnlpcgm0m" path="res://Scripts/coin_.gd" id="14_rolfb"]
 [ext_resource type="Script" uid="uid://tguotsuupeg" path="res://Scripts/area_2d.gd" id="16_rkpkx"]
 [ext_resource type="Texture2D" uid="uid://cw6wssk1tghdc" path="res://Assets/Knight.png" id="17_6ygi8"]
 
@@ -2490,14 +2491,17 @@ sources/5 = SubResource("TileSetAtlasSource_53dgu")
 sources/6 = SubResource("TileSetAtlasSource_ghkoj")
 sources/7 = SubResource("TileSetAtlasSource_t5o1o")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1di"]
-size = Vector2(12, 12)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1njct"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1di"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sio2j"]
+size = Vector2(16, 16)
+
 [node name="Level 6" type="Node2D" unique_id=1005013473]
-script = ExtResource("1_smkgk")
+script = ExtResource("1_qrith")
 
 [node name="Setting" type="TileMapLayer" parent="." unique_id=1648083686]
 tile_map_data = PackedByteArray("AAD3//v/BQAJAAYAAAD3//z/BQAJAAcAAAD3//3/BQAJAAcAAAD3//7/BQAJAAcAAAD3////BQAJAAcAAAD3/wAABQAJAAkAAAD3/wEABQANAAEAAAD3/wIABQAJAAYAAAD3/wMABQAJAAcAAAD3/wQABQAJAAkAAAD4//v/BQALAAYAAAD4//z/BQAKAAgAAAD4//3/BQAKAAgAAAD4//7/BQAKAAgAAAD4////BQAKAAgAAAD4/wAABQAKAAkAAAD4/wEABQANAAEAAAD4/wIABQALAAYAAAD4/wMABQAKAAgAAAD5//v/BQALAAYAAAD5//z/BQAKAAgAAAD5//3/BQAKAAgAAAD5//7/BQAKAAgAAAD5////BQAKAAgAAAD5/wAABQAKAAkAAAD5/wEABQANAAEAAAD5/wIABQALAAYAAAD5/wMABQAKAAgAAAD6//v/BQALAAYAAAD6//z/BQAKAAgAAAD6//3/BQAKAAgAAAD6//7/BQAKAAgAAAD6////BQAKAAgAAAD6/wAABQAKAAkAAAD6/wEABQANAAEAAAD6/wIABQAMAAYAAAD6/wMABQAHAAcAAAD6/wQABQAKAAkAAAD7//v/BQALAAYAAAD7//z/BQAKAAgAAAD7//3/BQAKAAgAAAD7//7/BQAKAAgAAAD7////BQAKAAgAAAD7/wAABQAKAAkAAAD7/wEABQANAAEAAAD7/wIABQANAAEAAAD7/wMABQALAAYAAAD7/wQABQAKAAkAAAD8//v/BQALAAYAAAD8//z/BQAKAAgAAAD8//3/BQAKAAgAAAD8//7/BQAKAAgAAAD8////BQAKAAgAAAD8/wAABQAGAAgAAAD8/wEABQAJAAkAAAD8/wIABQANAAEAAAD8/wMABQALAAYAAAD8/wQABQAKAAkAAAD9//v/BQALAAYAAAD9//z/BQAKAAgAAAD9//3/BQAKAAgAAAD9//7/BQAKAAgAAAD9////BQAKAAgAAAD9/wAABQAKAAgAAAD9/wEABQAKAAkAAAD9/wIABQANAAEAAAD9/wMABQALAAYAAAD9/wQABQAKAAkAAAD+//v/BQALAAYAAAD+//z/BQAKAAgAAAD+//3/BQAKAAgAAAD+//7/BQAKAAgAAAD+////BQAKAAgAAAD+/wAABQAKAAgAAAD+/wEABQAKAAkAAAD+/wIABQANAAEAAAD+/wMABQALAAYAAAD+/wQABQAKAAkAAAD///v/BQAGAAcAAAD///z/BQAKAAgAAAD///3/BQAKAAgAAAD///7/BQAKAAgAAAD/////BQAKAAgAAAD//wAABQAKAAgAAAD//wEABQAKAAkAAAD//wIABQANAAEAAAD//wMABQALAAYAAAD//wQABQAKAAkAAAAAAPv/BQAHAAcAAAAAAPz/BQAKAAgAAAAAAP3/BQAKAAgAAAAAAP7/BQAKAAgAAAAAAP//BQAKAAgAAAAAAAAABQAKAAgAAAAAAAEABQAKAAkAAAAAAAIABQANAAEAAAAAAAMABQALAAYAAAAAAAQABQAKAAkAAAABAPv/BQALAAYAAAABAPz/BQAKAAgAAAABAP3/BQAKAAgAAAABAP7/BQAKAAgAAAABAP//BQAKAAgAAAABAAAABQAKAAgAAAABAAEABQAKAAkAAAABAAIABQANAAEAAAABAAMABQAMAAYAAAABAAQABQAKAAkAAAACAPv/BQALAAYAAAACAPz/BQAKAAgAAAACAP3/BQAKAAgAAAACAP7/BQAKAAgAAAACAP//BQAKAAgAAAACAAAABQAKAAgAAAACAAEABQAKAAkAAAACAAIABQANAAEAAAACAAMABQANAAEAAAACAAQABQADAAkAAAADAPv/BQALAAYAAAADAPz/BQAKAAgAAAADAP3/BQAKAAgAAAADAP7/BQAKAAgAAAADAP//BQAKAAgAAAADAAAABQAKAAgAAAADAAEABQAGAAgAAAADAAIABQAJAAkAAAADAAMABQANAAEAAAADAAQABQAGAAYAAAAEAPv/BQALAAYAAAAEAPz/BQAKAAgAAAAEAP3/BQAKAAgAAAAEAP7/BQAKAAgAAAAEAP//BQAKAAgAAAAEAAAABQAKAAgAAAAEAAEABQAKAAgAAAAEAAIABQAKAAkAAAAEAAMABQANAAEAAAAEAAQABQALAAYAAAAFAPv/BQALAAYAAAAFAPz/BQAKAAgAAAAFAP3/BQAKAAgAAAAFAP7/BQAKAAgAAAAFAP//BQAKAAgAAAAFAAAABQAKAAgAAAAFAAEABQAKAAgAAAAFAAIABQAKAAkAAAAFAAMABQANAAEAAAAFAAQABQAMAAYAAAAGAPv/BQALAAYAAAAGAPz/BQAKAAgAAAAGAP3/BQAKAAgAAAAGAP7/BQAKAAgAAAAGAP//BQAKAAgAAAAGAAAABQAKAAgAAAAGAAEABQAKAAgAAAAGAAIABQAKAAkAAAAGAAMABQANAAEAAAAGAAQABQANAAEAAAAHAPv/BQALAAYAAAAHAPz/BQAKAAgAAAAHAP3/BQAKAAgAAAAHAP7/BQAKAAgAAAAHAP//BQAKAAgAAAAHAAAABQAKAAgAAAAHAAEABQAKAAgAAAAHAAIABQAGAAgAAAAHAAMABQAJAAkAAAAHAAQABQANAAEAAAAIAPv/BQAMAAYAAAAIAPz/BQAMAAgAAAAIAP3/BQAMAAgAAAAIAP7/BQAMAAgAAAAIAP//BQAMAAgAAAAIAAAABQAMAAgAAAAIAAEABQAMAAgAAAAIAAIABQAMAAgAAAAIAAMABQAMAAkAAAAIAAQABQANAAEAAAD4/wQABQAKAAkAAAD5/wQABQAKAAkAAAD3/wUABQANAAEAAAD4/wUABQANAAEAAAD5/wUABQANAAEAAAD6/wUABQANAAEAAAD7/wUABQANAAEAAAD8/wUABQANAAEAAAD9/wUABQANAAEAAAD+/wUABQANAAEAAAD//wUABQANAAEAAAAAAAUABQANAAEAAAABAAUABQANAAEAAAACAAUABQANAAEAAAAGAAUABQANAAEAAAAHAAUABQANAAEAAAAIAAUABQANAAEAAAD3//r/BQANAAEAAAD4//r/BQANAAEAAAD5//r/BQANAAEAAAD6//r/BQANAAEAAAD7//r/BQANAAEAAAD8//r/BQANAAEAAAD9//r/BQANAAEAAAD+//r/BQANAAEAAAABAPr/BQANAAEAAAACAPr/BQANAAEAAAADAPr/BQANAAEAAAAEAPr/BQANAAEAAAAFAPr/BQANAAEAAAAGAPr/BQANAAEAAAAHAPr/BQANAAEAAAAIAPr/BQANAAEAAAAJAPr/BQANAAEAAAAJAPv/BQANAAEAAAAJAPz/BQANAAEAAAAJAP3/BQANAAEAAAAJAP7/BQANAAEAAAAJAP//BQANAAEAAAAJAAAABQANAAEAAAAJAAEABQANAAEAAAAJAAIABQANAAEAAAAJAAMABQANAAEAAAAJAAQABQANAAEAAAAJAAUABQANAAEAAAD2//r/BQANAAEAAAD2//v/BQANAAEAAAD2//z/BQANAAEAAAD2//3/BQANAAEAAAD2//7/BQANAAEAAAD2////BQANAAEAAAD2/wAABQANAAEAAAD2/wEABQANAAEAAAD2/wIABQANAAEAAAD2/wMABQANAAEAAAD2/wQABQANAAEAAAD2/wUABQANAAEAAAD///r/BQAJAAcAAAAAAPr/BQAMAAgAAAAFAAUABQAMAAgAAAADAAUABQAJAAcAAAAEAAUABQAKAAgAAAA=")
@@ -2510,6 +2514,19 @@ tile_set = SubResource("TileSet_sulfs")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2113615138]
 zoom = Vector2(4, 4)
+
+[node name="Winning Coin" type="Area2D" parent="." unique_id=305413287]
+position = Vector2(8, 8)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("12_ugxhc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Winning Coin" unique_id=256342653]
+texture = ExtResource("13_rolfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Winning Coin" unique_id=593305543]
+shape = SubResource("RectangleShape2D_1njct")
 
 [node name="Player" type="Area2D" parent="." unique_id=2093940551]
 position = Vector2(-24, -24)
@@ -2530,17 +2547,26 @@ texture = ExtResource("17_6ygi8")
 collision_mask = 31
 collide_with_areas = true
 
-[node name="Winning Coin" type="Area2D" parent="." unique_id=305413287]
-position = Vector2(8, 8)
+[node name="Coin" type="Area2D" parent="." unique_id=289311992]
+position = Vector2(-8, -88)
 collision_layer = 32
 collision_mask = 2
-script = ExtResource("12_ugxhc")
+script = ExtResource("14_rolfb")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Winning Coin" unique_id=256342653]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=1357647070]
+shape = SubResource("RectangleShape2D_sio2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin" unique_id=1181563073]
 texture = ExtResource("13_rolfb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Winning Coin" unique_id=593305543]
-shape = SubResource("RectangleShape2D_1njct")
+[node name="Label" type="Label" parent="." unique_id=65316155]
+visible = false
+offset_left = -23.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 10.0
+text = "Level 6"
 
 [connection signal="area_entered" from="Winning Coin" to="Winning Coin" method="_on_area_entered"]
+[connection signal="area_entered" from="Coin" to="Coin" method="_on_area_entered"]

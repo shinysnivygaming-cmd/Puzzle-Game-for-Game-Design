@@ -2215,7 +2215,7 @@ collide_with_areas = true
 
 [node name="LArrowCrate" type="Area2D" parent="." unique_id=373171551 groups=["Crates"]]
 visible = false
-position = Vector2(152, -73)
+position = Vector2(-181, -40)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("15_1gd4t")
@@ -2879,6 +2879,14 @@ shape = SubResource("RectangleShape2D_fq1dl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Arrow (R)10" unique_id=1637222183]
 texture = ExtResource("24_q7l80")
+
+[node name="Label" type="Label" parent="." unique_id=379350064]
+visible = false
+offset_left = -23.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 10.0
+text = "Level -2"
 
 [connection signal="area_entered" from="Ladder" to="Ladder" method="_on_area_entered"]
 [connection signal="area_entered" from="Door/Button" to="Door" method="_on_button_area_entered"]
