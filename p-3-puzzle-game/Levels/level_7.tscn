@@ -2309,6 +2309,7 @@ collision_mask = 13
 collide_with_areas = true
 
 [node name="Coin" type="Area2D" parent="." unique_id=1747809602]
+visible = false
 position = Vector2(-40, -73)
 collision_layer = 32
 collision_mask = 2
